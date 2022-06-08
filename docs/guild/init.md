@@ -12,4 +12,8 @@ This .hdb/ folder stores all the tables in it and the path cannot be changed or 
 $ hdb init mydb
 ```
 
+## explain
+
+---
+
 The name after init is the name of the folder. If there exists a folder's name is same as above, it will create one with "copy" as suffix
