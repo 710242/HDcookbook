@@ -1,0 +1,53 @@
+site_name: hdb cook book
+repo_url: https://github.com/710242/HDmain
+repo_name: 710242/HDmain
+theme:
+  name: material
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode
+  icon:
+    repo: fontawesome/brands/github
+  features:
+    - navigation.tabs
+extra:
+  social:
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/squidfunk
+markdown_extensions:
+  - attr_list
+  - md_in_html
+  - pymdownx.superfences
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+nav:
+    - Home: index.md
+    - Guild:
+      - hdb init: guild/init.md
+      - hdb create: guild/create.md
+      - hdb insert: guild/insert.md
+      - hdb alter: guild/alter.md
+      - hdb update: guild/update.md
+      - hdb delete: guild/delete.md
+      - hdb rename: guild/rename.md
+      - hdb search: guild/search.md
+    # - About:
+    #   - index.md
+    #   - Page 1: about/page-1.md
+    #   - Page n: section/page-n.md
