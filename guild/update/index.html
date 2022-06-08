@@ -62,6 +62,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#hdb-update" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -369,10 +374,50 @@
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          hdb update
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         hdb update
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#showcase" class="md-nav__link">
+    showcase
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#explain" class="md-nav__link">
+    explain
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -444,6 +489,30 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#showcase" class="md-nav__link">
+    showcase
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#explain" class="md-nav__link">
+    explain
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -461,9 +530,23 @@
 
 
 
-  <h1>hdb update</h1>
-
-
+<h1 id="hdb-update">hdb update</h1>
+<hr />
+<p>This command update the data in the specific column.</p>
+<h2 id="showcase">showcase</h2>
+<div class="highlight"><span class="filename">update data</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>$ hdb update table_name <span class="nb">set</span> <span class="nv">column_name</span><span class="o">=</span>new_data where condition
+</code></pre></div>
+<h2 id="explain">explain</h2>
+<hr />
+<p>This is the first time we see "where" tag, let's first dive into it.</p>
+<p>Where must be placed after the set tag since we cannot assume how many condition there are after where. The way program read arguments after where is from left to right, for example:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>$ ... where column1=123 AND column2=456 OR column3=789
+</code></pre></div>
+<p>In this example, program first read "column1=123" and then AND operation record the next argument. We can see this as:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>$ ... where ((((column1=123) AND column2=456) OR column3=789) ... )
+</code></pre></div>
+<p>By this way, the program will record all condition after the where tag finish. In this kind of operation, we will use multithreading to speed up for the next operating.</p>
+<p>After the where tag, this function, update, is to update the exist data in the table. We use set tag to receive the target column name and the data to override the old one.</p>
 
               
             </article>
